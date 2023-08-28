@@ -1,15 +1,15 @@
 package me.kacper.user;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class User {
 
     private String email;
     private String password;
-    private Date expiry;
+    private Long expiry;
     private String ownerEmail;
 
-    public User(String email, String password, Date expiry, String ownerEmail) {
+    public User(String email, String password, Long expiry, String ownerEmail) {
         this.email = email;
         this.password = password;
         this.expiry = expiry;
@@ -32,7 +32,7 @@ public class User {
         this.email = email;
     }
 
-    public Date getExpiry() {
+    public Long getExpiry() {
         return expiry;
     }
 
@@ -40,7 +40,7 @@ public class User {
         return ownerEmail;
     }
 
-    public void setExpiry(Date expiry) {
+    public void setExpiry(Long expiry) {
         this.expiry = expiry;
     }
 

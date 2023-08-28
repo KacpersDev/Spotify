@@ -6,11 +6,11 @@ public class Family {
 
     private String email;
     private String password;
-    private Date expiry;
+    private Long expiry;
     private String inviteLink;
     private String address;
 
-    public Family(String email, String password, Date expiry, String inviteLink, String address){
+    public Family(String email, String password, long expiry, String inviteLink, String address){
         this.email = email;
         this.password = password;
         this.expiry = expiry;
@@ -18,7 +18,7 @@ public class Family {
         this.address = address;
     }
 
-    public Date getExpiry() {
+    public Long getExpiry() {
         return expiry;
     }
 
@@ -42,7 +42,7 @@ public class Family {
         this.email = email;
     }
 
-    public void setExpiry(Date expiry) {
+    public void setExpiry(Long expiry) {
         this.expiry = expiry;
     }
 

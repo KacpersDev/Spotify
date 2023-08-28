@@ -22,3 +22,4 @@ public class Main {
         new Program(mongoHandler, userManager, familyManager).run();
     }
 }
+// 85 IS THE MONTH VALUE BERWEEN OWNER DATE AND USER DATE SO OWNER ACCOUNT WOULD EXPIRE FROM SPOTIFY IN 85 MONTHS.

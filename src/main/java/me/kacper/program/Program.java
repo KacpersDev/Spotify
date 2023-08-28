@@ -9,6 +9,7 @@ import me.kacper.user.User;
 import me.kacper.user.manager.UserManager;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Program {
@@ -58,7 +59,7 @@ public class Program {
                 Scanner ownerScanner = new Scanner(System.in);
                 String owner = ownerScanner.nextLine();
 
-                mongoHandler.getUsers().insertOne(UserHelper.to(new User(email, password, Date.valueOf(expiry), owner)));
+                mongoHandler.getUsers().insertOne(UserHelper.to(new User(email, password, LocalDate.of(Integer.parseInt(expiry.split("-")[0]),Integer.parseInt(expiry.split("-")[1]),Integer.parseInt(expiry.split("-")[2])).toEpochDay(), owner)));
                 System.out.println("Successfully created user.");
             } else if (action.equalsIgnoreCase("2")) {
                 System.out.println("Email: ");
@@ -76,14 +77,14 @@ public class Program {
                 String password = passwordScanner.nextLine();
                 System.out.println("Expiry Date FORMAT (yyyy-MM-dd): ");
                 Scanner dateScanner = new Scanner(System.in);
-                String date = dateScanner.nextLine();
+                String expiry = dateScanner.nextLine();
                 System.out.println("Invite link: ");
                 Scanner inviteScanner = new Scanner(System.in);
                 String invite = inviteScanner.nextLine();
                 System.out.println("Address: ");
                 Scanner addressScanner = new Scanner(System.in);
                 String address = addressScanner.nextLine();
-                mongoHandler.getFamilies().insertOne(FamilyHelper.to(new Family(email, password, Date.valueOf(date), invite, address)));
+                mongoHandler.getFamilies().insertOne(FamilyHelper.to(new Family(email, password, LocalDate.of(Integer.parseInt(expiry.split("-")[0]),Integer.parseInt(expiry.split("-")[1]),Integer.parseInt(expiry.split("-")[2])).toEpochDay(), invite, address)));
                 System.out.println("Created family user account.");
             } else if (action.equalsIgnoreCase("4")) {
                 System.out.println("Email: ");
