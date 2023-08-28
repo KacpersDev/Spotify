@@ -11,6 +11,7 @@ public class UserHelper {
         document.put("password", user.getPassword());
         document.put("owner", user.getOwnerEmail());
         document.put("expiry", user.getExpiry());
+        document.put("plan", user.getPurchaseMonths());
         return document;
     }
 }

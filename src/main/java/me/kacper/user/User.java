@@ -1,19 +1,19 @@
 package me.kacper.user;
 
-import java.time.LocalDate;
-
 public class User {
 
     private String email;
     private String password;
     private Long expiry;
     private String ownerEmail;
+    private int purchaseMonths;
 
-    public User(String email, String password, Long expiry, String ownerEmail) {
+    public User(String email, String password, Long expiry, String ownerEmail, int purchaseMonths) {
         this.email = email;
         this.password = password;
         this.expiry = expiry;
         this.ownerEmail = ownerEmail;
+        this.purchaseMonths = purchaseMonths;
     }
 
     public String getPassword() {
@@ -46,5 +46,13 @@ public class User {
 
     public void setOwnerEmail(String ownerEmail) {
         this.ownerEmail = ownerEmail;
+    }
+
+    public int getPurchaseMonths() {
+        return purchaseMonths;
+    }
+
+    public void setPurchaseMonths(int purchaseMonths) {
+        this.purchaseMonths = purchaseMonths;
     }
 }

@@ -58,8 +58,11 @@ public class Program {
                 System.out.println("Owner Email: ");
                 Scanner ownerScanner = new Scanner(System.in);
                 String owner = ownerScanner.nextLine();
+                System.out.println("Purchased Months: ");
+                Scanner monthsScanner = new Scanner(System.in);
+                String month = monthsScanner.nextLine();
 
-                mongoHandler.getUsers().insertOne(UserHelper.to(new User(email, password, LocalDate.of(Integer.parseInt(expiry.split("-")[0]),Integer.parseInt(expiry.split("-")[1]),Integer.parseInt(expiry.split("-")[2])).toEpochDay(), owner)));
+                mongoHandler.getUsers().insertOne(UserHelper.to(new User(email, password, LocalDate.of(Integer.parseInt(expiry.split("-")[0]),Integer.parseInt(expiry.split("-")[1]),Integer.parseInt(expiry.split("-")[2])).toEpochDay(), owner, Integer.parseInt(month))));
                 System.out.println("Successfully created user.");
             } else if (action.equalsIgnoreCase("2")) {
                 System.out.println("Email: ");
