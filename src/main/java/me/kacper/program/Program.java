@@ -128,7 +128,7 @@ public class Program {
                 System.out.println("Expiry: " + user.getExpiry());
                 System.out.println(" ");
             } else if (action.equalsIgnoreCase("8")) {
-
+                this.userManager.getDataByPurchase();
             }
         } while (!action.equalsIgnoreCase("1") || !action.equalsIgnoreCase("2") || !action.equalsIgnoreCase("3") || !action.equalsIgnoreCase("4"));
     }

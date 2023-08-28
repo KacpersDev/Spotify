@@ -6,6 +6,10 @@ import me.kacper.mongo.MongoHandler;
 import me.kacper.user.User;
 import org.bson.Document;
 
+import java.time.LocalDate;
+import java.time.Period;
+import java.util.function.Consumer;
+
 public class UserManager {
 
     private final MongoHandler mongoHandler;
@@ -26,5 +30,16 @@ public class UserManager {
         Document document = mongoHandler.getUsers().find(Filters.eq("email", email)).first();
         if (document != null) return new User(document.getString("email"), document.getString("password"), document.getDate("expiry"), document.getString("owner"));
         return null;
+    }
+
+    @Deprecated
+    public void getDataByPurchase(){
+        System.out.println("Client Knowledge");
+        mongoHandler.getUsers().find().forEach((Consumer<? super Document>) document -> {
+            LocalDate today = LocalDate.now();
+            LocalDate custom = LocalDate.of(document.getDate("expiry").getYear(), document.getDate("expiry").getMonth(), document.getDate("expiry").getDay());
+            Period diff = Period.between(custom, today);
+            System.out.println(document.getString("email") + ":" + diff.getMonths() + " Months");
+        });
     }
 }
