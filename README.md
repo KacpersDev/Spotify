@@ -1,6 +1,6 @@
 # Spotify
 
-### Spotiy Client Application
+### Spoticy Client Application
 
 # Author
 > KacperM
