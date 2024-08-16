@@ -1,6 +1,6 @@
-# Spotify
+# Spotify - Family
 
-### Spoticy Client Application
+### Spotify Client Application
 
 # Author
 > KacperM
